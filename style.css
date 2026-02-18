@@ -59,6 +59,13 @@ nav a:hover, nav a.active { color: var(--primary); }
 .side-content h3 { font-size: 14px; font-weight: 600; margin-bottom: 5px; line-height: 1.4; }
 .side-content span { font-size: 12px; color: var(--text-grey); }
 
+/* --- CHART SECTION (GRAFİK) --- */
+.chart-section { padding: 20px 0 40px; }
+.chart-header { margin-bottom: 20px; border-left: 4px solid var(--primary); padding-left: 15px; }
+.chart-header h2 { font-size: 20px; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.tradingview-widget-container { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); border: 1px solid #334155; }
+
+
 /* --- DATA SECTION --- */
 .data-section { padding: 20px 0; }
 .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
