@@ -1,0 +1,127 @@
+/* --- GENEL AYARLAR --- */
+:root {
+    --bg-dark: #0f172a; /* Çok koyu lacivert (Arka plan) */
+    --bg-card: #1e293b; /* Kart rengi */
+    --primary: #f59e0b; /* Coin Mühendisi Sarısı/Turuncusu */
+    --text-light: #f1f5f9;
+    --text-grey: #94a3b8;
+    --up: #10b981; /* Yeşil (Yükseliş) */
+    --down: #ef4444; /* Kırmızı (Düşüş) */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Inter', sans-serif; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* --- TICKER (Kayan Bant) --- */
+.ticker-wrap { background: #000; overflow: hidden; height: 40px; border-bottom: 1px solid #333; }
+.ticker { display: flex; height: 100%; align-items: center; animation: ticker 20s linear infinite; white-space: nowrap; }
+.ticker-item { margin-right: 40px; font-size: 13px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 5px; }
+.ticker-item i { color: var(--primary); }
+.up { color: var(--up); } .down { color: var(--down); }
+
+@keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+/* --- HEADER --- */
+header { background: var(--bg-card); padding: 15px 0; border-bottom: 2px solid #334155; position: sticky; top: 0; z-index: 1000; }
+.header-row { display: flex; justify-content: space-between; align-items: center; }
+
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo img { width: 50px; height: 50px; filter: drop-shadow(0 0 5px var(--primary)); }
+.logo h1 { font-size: 24px; font-weight: 800; color: #fff; line-height: 1; }
+.logo span { font-size: 12px; color: var(--primary); font-weight: 600; letter-spacing: 1px; }
+
+nav { display: flex; gap: 20px; align-items: center; }
+nav a { font-size: 14px; font-weight: 600; color: var(--text-grey); display: flex; align-items: center; gap: 6px; }
+nav a:hover, nav a.active { color: var(--primary); }
+.btn-ask { background: var(--primary); color: #000 !important; padding: 8px 20px; border-radius: 5px; font-weight: 700; }
+.btn-ask:hover { background: #d97706; }
+.mobile-menu-btn { display: none; color: white; font-size: 24px; }
+
+/* --- HERO SECTION --- */
+.hero-section { padding: 30px 0; }
+.hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+
+.main-news-card { position: relative; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.main-news-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.main-news-card:hover img { transform: scale(1.05); }
+.main-news-card .badge { position: absolute; top: 20px; left: 20px; background: var(--down); color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; z-index: 2; }
+.news-content { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 30px; }
+.news-content h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; color: #fff; }
+
+.side-news { display: flex; flex-direction: column; gap: 20px; }
+.side-card { background: var(--bg-card); display: flex; gap: 15px; padding: 10px; border-radius: 8px; align-items: center; transition: 0.3s; border: 1px solid transparent; }
+.side-card:hover { border-color: var(--primary); transform: translateX(-5px); }
+.side-card img { width: 80px; height: 80px; border-radius: 6px; object-fit: cover; }
+.side-content h3 { font-size: 14px; font-weight: 600; margin-bottom: 5px; line-height: 1.4; }
+.side-content span { font-size: 12px; color: var(--text-grey); }
+
+/* --- DATA SECTION --- */
+.data-section { padding: 20px 0; }
+.data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+.data-card { background: var(--bg-card); border-radius: 12px; padding: 20px; border: 1px solid #334155; }
+.card-header h3 { font-size: 16px; color: var(--primary); display: flex; align-items: center; gap: 8px; margin-bottom: 15px; }
+
+/* Gauge (Korku Endeksi) */
+.gauge-wrapper { text-align: center; margin: 20px 0; }
+.gauge-value { font-size: 42px; font-weight: 800; color: var(--up); }
+.gauge-label { font-size: 14px; color: var(--text-grey); }
+.data-desc { text-align: center; font-size: 13px; color: #fff; }
+
+/* Long/Short Bars */
+.ratio-list li { margin-bottom: 15px; }
+.ratio-list span { font-size: 13px; display: block; margin-bottom: 5px; }
+.bar-container { display: flex; height: 18px; border-radius: 4px; overflow: hidden; }
+.bar-long { background: var(--up); font-size: 10px; display: flex; align-items: center; justify-content: center; color: black; font-weight: bold; }
+.bar-short { background: var(--down); font-size: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+
+/* Sepet */
+.coin-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+.coin-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #334155; }
+.coin-item:last-child { border-bottom: none; }
+.coin-item span { font-weight: 600; }
+.btn-full { display: block; width: 100%; text-align: center; background: #334155; padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 600; }
+.btn-full:hover { background: var(--primary); color: #000; }
+
+/* --- MARKET TABLE --- */
+.market-tabs-section { padding: 40px 0; }
+.tabs-header { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+.tab-btn { background: none; border: none; color: var(--text-grey); font-size: 16px; font-weight: 600; cursor: pointer; padding: 10px 20px; }
+.tab-btn.active { color: var(--primary); border-bottom: 2px solid var(--primary); margin-bottom: -12px; background: rgba(245, 158, 11, 0.1); border-radius: 5px 5px 0 0; }
+
+.market-table { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+.table-row { display: grid; grid-template-columns: 0.5fr 3fr 1.5fr 1.5fr 1fr; padding: 15px 20px; border-bottom: 1px solid #334155; align-items: center; }
+.table-row.head { background: #0f172a; color: var(--text-grey); font-size: 12px; text-transform: uppercase; font-weight: 700; }
+.table-row:hover:not(.head) { background: #263345; }
+.coin-name { display: flex; align-items: center; gap: 10px; font-weight: 700; color: #fff; }
+.col { font-size: 14px; }
+
+/* --- FOOTER --- */
+footer { background: #020617; padding: 50px 0 20px; margin-top: 50px; border-top: 1px solid #334155; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 30px; }
+.footer-brand h2 { color: #fff; margin-bottom: 10px; }
+.footer-brand p { color: var(--text-grey); font-size: 14px; line-height: 1.6; max-width: 300px; }
+.footer-links h4, .footer-social h4 { color: #fff; margin-bottom: 20px; font-size: 16px; border-left: 3px solid var(--primary); padding-left: 10px; }
+.footer-links ul li { margin-bottom: 10px; }
+.footer-links a { color: var(--text-grey); font-size: 14px; }
+.footer-links a:hover { color: var(--primary); padding-left: 5px; }
+
+.social-icons { display: flex; gap: 15px; }
+.social-icons a { width: 35px; height: 35px; background: #1e293b; display: flex; align-items: center; justify-content: center; border-radius: 5px; color: #fff; }
+.social-icons a:hover { background: var(--primary); color: #000; }
+
+.footer-bottom { text-align: center; border-top: 1px solid #1e293b; padding-top: 20px; font-size: 13px; color: var(--text-grey); }
+
+/* Mobil Uyum */
+@media (max-width: 768px) {
+    .header-row nav { display: none; }
+    .mobile-menu-btn { display: block; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .table-row { grid-template-columns: 1fr 2fr 1fr; }
+    .table-row .col:nth-child(4), .table-row .col:nth-child(5) { display: none; }
+    .footer-top { grid-template-columns: 1fr; }
+}
