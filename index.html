@@ -83,6 +83,35 @@
         </div>
     </section>
 
+    <section class="chart-section">
+        <div class="container">
+            <div class="chart-header">
+                <h2><i class="fa-solid fa-chart-area"></i> Canlı Piyasa Grafiği (BTC/USDT)</h2>
+            </div>
+            
+            <div class="tradingview-widget-container" style="height:500px; width:100%">
+              <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px); width:100%"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+              {
+              "autosize": true,
+              "symbol": "BINANCE:BTCUSDT",
+              "interval": "D",
+              "timezone": "Etc/UTC",
+              "theme": "dark",
+              "style": "1",
+              "locale": "tr",
+              "enable_publishing": false,
+              "backgroundColor": "rgba(15, 23, 42, 1)",
+              "gridColor": "rgba(30, 41, 59, 0.5)",
+              "allow_symbol_change": true,
+              "calendar": false,
+              "support_host": "https://www.tradingview.com"
+            }
+              </script>
+            </div>
+            </div>
+    </section>
+
     <section class="data-section">
         <div class="container">
             <div class="data-grid">
